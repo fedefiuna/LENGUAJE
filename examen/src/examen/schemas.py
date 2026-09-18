@@ -28,6 +28,9 @@ class LecturaBase(BaseModel):
 class LecturaCreate(LecturaBase):
     pass
 
+class LecturaUpdate(BaseModel):
+    valor: float
+
 class LecturaResponse(LecturaBase):
     id: int
 

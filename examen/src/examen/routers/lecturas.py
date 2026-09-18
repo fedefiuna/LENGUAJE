@@ -4,7 +4,7 @@ from sqlalchemy import func
 from typing import List, Optional
 from examen.database import get_db
 from examen.models import LecturaDB, SensorDB
-from examen.schemas import LecturaCreate, LecturaResponse, LecturaResponse ,EstadisticaResponse
+from examen.schemas import LecturaCreate, LecturaResponse, LecturaUpdate ,EstadisticaResponse
 
 router = APIRouter(prefix="/api/lecturas", tags=["Lecturas"])
 
@@ -30,7 +30,7 @@ def historial_lecturas(sensor_id: Optional[int] = Query(None), limit: Optional[i
 
 
 @router.get("/estadisticas/{sensor_id}", response_model=EstadisticaResponse)
-def obtener_estadisticas(sensor_id: int, db: Session = Depends(get_db)):
+def obtener_estadisticas(sensor_id: str, db: Session = Depends(get_db)):
     sensor = db.query(SensorDB).filter(SensorDB.id == sensor_id).first()
     if not sensor:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Sensor no encontrado")

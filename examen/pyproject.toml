@@ -6,7 +6,7 @@ authors = [
     {name = "Federico Da Silva",email = "fededamel@fiuna.edu.py"}
 ]
 readme = "README.md"
-requires-python = ">=3.14"
+requires-python = ">=3.12"
 dependencies = [
     "fastapi (>=0.141.1,<0.142.0)",
     "uvicorn (>=0.53.0,<0.54.0)",
